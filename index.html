@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Calculator Rumus Matematika</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 0px;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    background-color: #800000;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    width: 90%;
+}
+h2 {
+    background-color: #0080ff;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+}
+.container {
+    width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #008000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #0061c1;
+}
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Responsive CSS for Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 18px;
+        padding: 10px;
+    }
+    h2 {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .form-group input {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+   
+    
+    <!-- Kubus -->
+    <div class="container">
+        <h1>Calculator Rumus Matematika</h1>
+        <h2>1. Volume Kubus</h2>
+        <div class="form-group">
+            <label for="sisiKubus">Panjang Sisi (cm):</label>
+            <input type="number" id="sisiKubus" min="0">
+        </div>
+        <button class="btn" onclick="hitungKubus()">Hitung Volume</button>
+        <div class="result" id="resultKubus"></div>
+    </div>
+    
+    <!-- Segitiga -->
+    <div class="container">
+        <h2>2. Luas Segitiga</h2>
+        <div class="form-group">
+            <label for="alasSegitiga">Alas (cm):</label>
+            <input type="number" id="alasSegitiga" min="0">
+        </div>
+        <div class="form-group">
+            <label for="tinggiSegitiga">Tinggi (cm):</label>
+            <input type="number" id="tinggiSegitiga" min="0">
+        </div>
+        <button class="btn" onclick="hitungSegitiga()">Hitung Luas</button>
+        <div class="result" id="resultSegitiga"></div>
+    </div>
+    
+    <!-- Lingkaran -->
+    <div class="container">
+        <h2>3. Luas Lingkaran</h2>
+        <div class="form-group">
+            <label for="jariLingkaran">Jari-jari (cm):</label>
+            <input type="number" id="jariLingkaran" min="0">
+        </div>
+        <button class="btn" onclick="hitungLingkaran()">Hitung Luas</button>
+        <div class="result" id="resultLingkaran"></div>
+    </div>
+    
+    <!-- Setengah Lingkaran -->
+    <div class="container">
+        <h2>4. Luas Setengah Lingkaran</h2>
+        <div class="form-group">
+            <label for="jariSetengahLingkaran">Jari-jari (cm):</label>
+            <input type="number" id="jariSetengahLingkaran" min="0">
+        </div>
+        <button class="btn" onclick="hitungSetengahLingkaran()">Hitung Luas</button>
+        <div class="result" id="resultSetengahLingkaran"></div>
+    </div>
+    
+    <!-- Trapesium -->
+    <div class="container">
+        <h2>5. Luas Trapesium</h2>
+        <div class="form-group">
+            <label for="sisiAtasTrapesium">Sisi Atas (cm):</label>
+            <input type="number" id="sisiAtasTrapesium" min="0">
+        </div>
+        <div class="form-group">
+            <label for="sisiBawahTrapesium">Sisi Bawah (cm):</label>
+            <input type="number" id="sisiBawahTrapesium" min="0">
+        </div>
+        <div class="form-group">
+            <label for="tinggiTrapesium">Tinggi (cm):</label>
+            <input type="number" id="tinggiTrapesium" min="0">
+        </div>
+        <button class="btn" onclick="hitungTrapesium()">Hitung Luas</button>
+        <div class="result" id="resultTrapesium"></div>
+    </div>
+    <div class="container">
+        <h2>6. Kubikasi (Volume Ruangan Balok)</h2>
+        <div class="form-group">
+            <label for="panjangKubikasi">Panjang (cm):</label>
+            <input type="number" id="panjangKubikasi" min="0">
+        </div>
+        <div class="form-group">
+            <label for="lebarKubikasi">Lebar (cm):</label>
+            <input type="number" id="lebarKubikasi" min="0">
+        </div>
+        <div class="form-group">
+            <label for="tinggiKubikasi">Tinggi (cm):</label>
+            <input type="number" id="tinggiKubikasi" min="0">
+        </div>
+        <button class="btn" onclick="hitungKubikasi()">Hitung Kubikasi</button>
+        <div class="result" id="resultKubikasi"></div>
+    </div>
+    <div class="container">
+        <h2>7. Volume Air dalam Tabung</h2>
+        <div class="form-group">
+            <label for="jariJariTabung">Jari-jari (cm):</label>
+            <input type="number" id="jariJariTabung" min="0" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="tinggiTabung">Tinggi (cm):</label>
+            <input type="number" id="tinggiTabung" min="0" step="0.01">
+        </div>
+        <button class="btn" onclick="hitungVolumeTabung()">Hitung Volume Air</button>
+        <div class="result" id="resultVolumeTabung"></div>
+    </div>
+    <div class="container">
+        <h2>8. Volume Air dalam Balok</h2>
+        <div class="form-group">
+            <label for="panjangAir">Panjang (cm):</label>
+            <input type="number" id="panjangAir" min="0">
+        </div>
+        <div class="form-group">
+            <label for="lebarAir">Lebar (cm):</label>
+            <input type="number" id="lebarAir" min="0">
+        </div>
+        <div class="form-group">
+            <label for="tinggiAir">Tinggi (cm):</label>
+            <input type="number" id="tinggiAir" min="0">
+        </div>
+        <button class="btn" onclick="hitungVolumeAir()">Hitung Volume Air</button>
+        <div class="result" id="resultVolumeAir"></div>
+    </div>
+
+    <script>
+        function hitungKubus() {
+            const sisi = document.getElementById('sisiKubus').value;
+            const volume = Math.pow(sisi, 3);
+            document.getElementById('resultKubus').innerText = 'Volume Kubus: ' + volume + ' cm³';
+        }
+
+        function hitungSegitiga() {
+            const alas = document.getElementById('alasSegitiga').value;
+            const tinggi = document.getElementById('tinggiSegitiga').value;
+            const luas = 0.5 * alas * tinggi;
+            document.getElementById('resultSegitiga').innerText = 'Luas Segitiga: ' + luas + ' cm²';
+        }
+
+        function hitungLingkaran() {
+            const jari = document.getElementById('jariLingkaran').value;
+            const luas = Math.PI * Math.pow(jari, 2);
+            document.getElementById('resultLingkaran').innerText = 'Luas Lingkaran: ' + luas.toFixed(2) + ' cm²';
+        }
+
+        function hitungSetengahLingkaran() {
+            const jari = document.getElementById('jariSetengahLingkaran').value;
+            const luas = 0.5 * Math.PI * Math.pow(jari, 2);
+            document.getElementById('resultSetengahLingkaran').innerText = 'Luas Setengah Lingkaran: ' + luas.toFixed(2) + ' cm²';
+        }
+
+        function hitungTrapesium() {
+            const sisiAtas = document.getElementById('sisiAtasTrapesium').value;
+            const sisiBawah = document.getElementById('sisiBawahTrapesium').value;
+            const tinggi = document.getElementById('tinggiTrapesium').value;
+            const luas = 0.5 * (parseFloat(sisiAtas) + parseFloat(sisiBawah)) * tinggi;
+            document.getElementById('resultTrapesium').innerText = 'Luas Trapesium: ' + luas + ' cm²';
+        }
+           // Fungsi hitung volume air dalam balok (liter)
+           function hitungVolumeAir() {
+            const panjang = document.getElementById('panjangAir').value;
+            const lebar = document.getElementById('lebarAir').value;
+            const tinggi = document.getElementById('tinggiAir').value;
+            const volumeCm3 = panjang * lebar * tinggi;
+            const volumeLiter = volumeCm3 / 1000; // Konversi dari cm³ ke liter
+            document.getElementById('resultVolumeAir').innerText = 'Volume Air (Balok): ' + volumeLiter.toFixed(2) + ' L';
+        }
+
+        // Fungsi hitung kubikasi (m³)
+        function hitungKubikasi() {
+            const panjang = document.getElementById('panjangKubikasi').value;
+            const lebar = document.getElementById('lebarKubikasi').value;
+            const tinggi = document.getElementById('tinggiKubikasi').value;
+            const volumeCm3 = panjang * lebar * tinggi;
+            const volumeM3 = volumeCm3 / 1000000; // Konversi dari cm³ ke m³
+            document.getElementById('resultKubikasi').innerText = 'Kubikasi (Volume Ruangan): ' + volumeM3.toFixed(3) + ' m³';
+        }
+
+        // Fungsi hitung volume air dalam tabung (liter)
+        function hitungVolumeTabung() {
+            const jariJari = document.getElementById('jariJariTabung').value;
+            const tinggi = document.getElementById('tinggiTabung').value;
+            const volumeCm3 = Math.PI * Math.pow(jariJari, 2) * tinggi; // Volume dalam cm³
+            const volumeLiter = volumeCm3 / 1000; // Konversi dari cm³ ke liter
+            document.getElementById('resultVolumeTabung').innerText = 'Volume Air (Tabung): ' + volumeLiter.toFixed(2) + ' L';
+        }
+    </script>
+    <script>
+        // Daftar service worker
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./service-worker.js")
+            .then((registration) => {
+                console.log("Service Worker terdaftar dengan sukses:", registration.scope);
+            })
+            .catch((error) => {
+                console.log("Service Worker pendaftaran gagal:", error);
+            });
+        }
+    </script>
+</body>
+</html>
